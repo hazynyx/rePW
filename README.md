@@ -2,6 +2,14 @@
 
 A powerful Chrome extension designed to improve your experience on Physics Wallah (`pw.live`). It adds several highly requested features to help you study more efficiently and track your progress.
 
+## Screenshots
+
+| Extension Popup | TrueTime Overlay |
+| :---: | :---: |
+| ![Extension Popup](Screenshots/popup.png) | ![TrueTime Overlay](Screenshots/overlay.png) |
+| **Analytics Dashboard** | **Timeline Preview** |
+| ![Analytics Dashboard](Screenshots/analytics-preview.png) | ![Timeline Preview](Screenshots/timeline-image-preview.png) |
+
 ## Features
 
 - ⏱ **TrueTime UI**: Automatically calculates and displays the exact time remaining on videos based on your current playback speed. Know exactly when your lecture will finish!
