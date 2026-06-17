@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "PW ki Gaand PF",
-  "version": "2.0.1",
-  "description": "The Goal of this extension is to fix the fking issues left by some well paid suckers at PW also to fk ur mum ;).",
+  "name": "rePW",
+  "version": "1.0.1",
+  "description": "Fixes known issues of PW player and adds a study analytics page ;)",
   "host_permissions": [
     "<all_urls>",
     "*://*.pw.live/*",
