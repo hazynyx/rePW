@@ -2,6 +2,9 @@
 
 A powerful Chrome extension designed to improve your experience on Physics Wallah (`pw.live`). It adds several highly requested features to help you study more efficiently and track your progress.
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ## Screenshots
 
 | Extension Popup | TrueTime Overlay |
@@ -41,3 +44,9 @@ Click the extension icon in your Chrome toolbar to open the settings panel. From
 - `storage`: Required to save your extension settings and track your study time history.
 - `activeTab` & `scripting`: Required to inject the Dark Mode, TrueTime UI, and custom speed controllers into the page.
 - `downloads`: Used for exporting your data (if applicable).
+
+## Credits
+
+This project was inspired by the original PW extension project by https://github.com/0xLittleDream/PWEnhancer.
+
+This version includes major UI redesigns, analytics improvements, bug fixes, study tracking, and additional features.
