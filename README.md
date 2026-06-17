@@ -1,4 +1,4 @@
-# PW Enhancer
+# rePW
 
 A powerful Chrome extension designed to improve your experience on Physics Wallah (`pw.live`). It adds several highly requested features to help you study more efficiently and track your progress.
 
