@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="analysis.css">
+    <script src="chart.js"></script>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <header class="header">
+            <div class="logo">
+                <img src="icon128.png" alt="Logo" width="32" height="32">
+                <h1>Analytics</h1>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            
+            <!-- Left Column: Metrics & Charts -->
+            <div class="left-column">
+                
+                <!-- Metrics Grid -->
+                <section class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Study Time</div>
+                        <div class="metric-value" id="top-total-time">0h 0m</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Lectures</div>
+                        <div class="metric-value" id="top-lectures">0h 0m</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">DPPs</div>
+                        <div class="metric-value" id="top-dpps">0h 0m</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Notes / PDFs</div>
+                        <div class="metric-value" id="top-notes">0h 0m</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Time Saved</div>
+                        <div class="metric-value text-accent" id="top-time-saved">0h 0m</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Efficiency</div>
+                        <div class="metric-value" id="top-efficiency">0%</div>
+                    </div>
+                </section>
+
+                <!-- Chart & Insights & Efficiency -->
+                <section class="main-content-row">
+                    <!-- Daily Trend Chart -->
+                    <div class="panel chart-panel">
+                        <div class="panel-header">
+                            <h2>Study Time Trend</h2>
+                            <div class="date-picker compact">
+                                <button class="picker-btn" id="prev-day">&lt;</button>
+                                <span class="picker-label" id="current-day-label">Today</span>
+                                <button class="picker-btn" id="next-day">&gt;</button>
+                            </div>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="dailyTimelineChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Right Stack: Insights & Efficiency Merged -->
+                    <div class="panel merged-insights-panel">
+                        <div class="panel-header" style="margin-bottom: 8px;">
+                            <h2>Insights & Efficiency</h2>
+                            <div class="toggle-group compact">
+                                <button class="toggle-btn active" id="toggle-daily">Daily</button>
+                                <button class="toggle-btn" id="toggle-alltime">All Time</button>
+                            </div>
+                        </div>
+                        
+                        <div class="merged-content" style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1;">
+                            <!-- Insights Grid -->
+                            <div class="insights-grid">
+                                <div class="insight-item">
+                                    <div class="insight-label">Current Streak</div>
+                                    <div class="insight-value" id="insight-streak">0 Days</div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Daily Average</div>
+                                    <div class="insight-value" id="insight-avg">0h 0m</div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Best Day</div>
+                                    <div class="insight-value" id="insight-best-val">0h 0m</div>
+                                    <div class="insight-sub" id="insight-best-date">--</div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Active Hour</div>
+                                    <div class="insight-value" id="insight-hour-val">--:--</div>
+                                    <div class="insight-sub" id="insight-hour-avg">Peak period</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Efficiency Breakdown -->
+                            <div class="breakdown-content" style="margin-top: auto;">
+                                <div class="breakdown-item">
+                                    <span class="bd-label">Custom Speed</span>
+                                    <span class="bd-value" id="val-speed">0h 0m</span>
+                                </div>
+                                <div class="progress-bar"><div class="progress-fill speed-fill" id="bar-speed" style="width: 0%"></div></div>
+                                
+                                <div class="total-saved-box">
+                                    <span>Bonus Time</span>
+                                    <strong id="stat-total-saved" class="text-accent">0h 0m</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Calendar -->
+            <div class="right-column">
+                <div class="panel calendar-panel">
+                    <div class="panel-header">
+                        <h2>Study Calendar</h2>
+                        <div class="date-picker compact">
+                            <button class="picker-btn" id="prev-month">&lt;</button>
+                            <span class="picker-label" id="current-month-label">Month YYYY</span>
+                            <button class="picker-btn" id="next-month">&gt;</button>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="cal-header">Mon</div>
+                        <div class="cal-header">Tue</div>
+                        <div class="cal-header">Wed</div>
+                        <div class="cal-header">Thu</div>
+                        <div class="cal-header">Fri</div>
+                        <div class="cal-header">Sat</div>
+                        <div class="cal-header">Sun</div>
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="analysis.js"></script>
+</body>
+</html>

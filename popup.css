@@ -1,0 +1,249 @@
+:root {
+    --bg-dark: #09090b;
+    --panel-bg: #111115;
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --accent-color: #3b82f6;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    width: 340px; /* Slightly wider for better breathing room */
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    user-select: none;
+}
+
+.container {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Today's Study Time Widget */
+.study-time-widget {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.study-time-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+#study-time-display {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -1px;
+}
+
+.primary-btn {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+    background-color: #2563eb;
+}
+
+.primary-btn svg {
+    margin-right: 4px;
+}
+
+/* Settings List */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.setting-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.setting-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+    max-width: 220px;
+}
+
+/* Switches */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3f3f46;
+    transition: .3s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+/* Dropdowns */
+.pw-dropdown {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Advanced Audio Tuning Container */
+.advanced-audio-box {
+    background: var(--bg-dark);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.advanced-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.audio-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.audio-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.audio-input {
+    width: 54px;
+    background: var(--panel-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}

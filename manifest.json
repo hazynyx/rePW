@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "PW ki Gaand PF",
+  "version": "2.0.1",
+  "description": "The Goal of this extension is to fix the fking issues left by some well paid suckers at PW also to fk ur mum ;).",
+  "host_permissions": [
+    "<all_urls>",
+    "*://*.pw.live/*",
+    "*://streamfiles.eu.org/*"
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "downloads",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PW Enhancer Settings",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.pw.live/*",
+        "*://streamfiles.eu.org/*"
+      ],
+      "js": ["content.js"],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}
