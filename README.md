@@ -16,7 +16,10 @@ A powerful Chrome extension designed to improve your experience on Physics Walla
 ## Features
 
 - ⏱ **TrueTime UI**: Automatically calculates and displays the exact time remaining on videos based on your current playback speed. Know exactly when your lecture will finish!
-- 📊 **Study Time Tracker & Analysis**: Tracks your daily study time on the platform. Includes a detailed analysis page with charts to help you visualize your study habits over time.
+- 📊 **Advanced Analytics Dashboard**: Tracks your daily study time on the platform. Includes a GitHub-style heatmap, active streaks, efficiency breakdowns, and a prominent "Today's Study Time" dashboard. 
+- 🔥 **Strict Streak System**: Only rewards consistency! A minimum of 30 minutes of study time is required to count as an active study day and maintain your streak.
+- ✂️ **Jumpcutter Engine**: Automatically detects and skips silence during lectures. Configurable margins, thresholds, and silence speeds.
+- 📸 **DRM-Bypass Screenshots**: Capture lecture slides instantly via the overlay or timeline. Downloads high-res snapshots without triggering DRM black screens.
 - 🌙 **Smart Dark Mode**: Enables a comprehensive dark mode across the entire site to reduce eye strain during late-night study sessions.
 - ⏩ **Custom Playback Speed**: Overrides the native video player's speed limits, allowing you to watch lectures at up to 4.00x speed.
 
@@ -52,8 +55,8 @@ Click the extension icon in your Chrome toolbar to open the settings panel. From
 ## Permissions
 
 - `storage`: Required to save your extension settings and track your study time history.
-- `activeTab` & `scripting`: Required to inject the Dark Mode, TrueTime UI, and custom speed controllers into the page.
-- `downloads`: Used for exporting your data (if applicable).
+- `activeTab`, `<all_urls>`, & `scripting`: Required to bypass DRM for screenshots, inject Dark Mode, TrueTime UI, and custom speed controllers into the page.
+- `downloads`: Used for saving high-res lecture slide screenshots locally.
 
 ## Credits
 
