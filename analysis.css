@@ -113,10 +113,40 @@ body {
 /* Metrics Top Row (Flat) */
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     grid-template-rows: repeat(2, 1fr);
     gap: 12px;
     flex-shrink: 0;
+}
+
+.metric-card-hero {
+    grid-row: 1 / span 2;
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.metric-card-hero .metric-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.metric-card-hero .metric-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -1.5px;
+    font-variant-numeric: tabular-nums;
 }
 
 .metric-card {

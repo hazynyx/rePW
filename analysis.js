@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const [date, seconds] of Object.entries(res.dailyHistory)) {
             if (seconds > 0) {
                 totalStudyAllTime += seconds;
+            }
+            if (seconds >= 1800) {
                 activeDays++;
                 if (seconds > bestDayVal) {
                     bestDayVal = seconds;
@@ -73,13 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let checkDate = new Date();
-        if (!res.dailyHistory[todayIso] || res.dailyHistory[todayIso] === 0) {
+        if (!res.dailyHistory[todayIso] || res.dailyHistory[todayIso] < 1800) {
             checkDate.setDate(checkDate.getDate() - 1);
         }
         
         while (true) {
             const iso = getIso(checkDate);
-            if (res.dailyHistory[iso] && res.dailyHistory[iso] > 0) {
+            if (res.dailyHistory[iso] && res.dailyHistory[iso] >= 1800) {
                 streak++;
                 checkDate.setDate(checkDate.getDate() - 1);
             } else {
@@ -147,6 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('top-notes').textContent = formatTime(totalNotes);
             document.getElementById('top-time-saved').textContent = formatTime(totalSaved);
             document.getElementById('top-efficiency').textContent = `${efficiencyPct}%`;
+
+            const heroTodayEl = document.getElementById('hero-today-time');
+            if (heroTodayEl) heroTodayEl.textContent = formatTime(res.dailyHistory[getIso(today)] || 0);
 
             // --- CHART ---
             const dayLabelEl = document.getElementById('current-day-label');
@@ -249,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const seconds = res.dailyHistory[iso] || 0;
 
                 let level = 0;
-                if (seconds > 0) {
+                if (seconds >= 1800) {
                     const hours = seconds / 3600;
                     if (hours >= 6) level = 4;
                     else if (hours >= 4) level = 3;
