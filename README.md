@@ -31,6 +31,16 @@ Since this extension is not currently available on the Chrome Web Store, you can
 5. Select the directory containing the extension files.
 6. The extension is now installed! You can pin it to your toolbar for easy access to settings and your study time analysis.
 
+### How to Update (Without Losing Data)
+
+Since this is an unpacked developer extension, you must update it manually. To ensure your stored study time and analytics data are **not** wiped:
+
+1. **Do NOT remove the extension** from `chrome://extensions/` (doing so deletes all your study history).
+2. Download the updated files and **overwrite/replace** the files directly inside your existing local extension folder.
+3. Open `chrome://extensions/` in Chrome.
+4. Find the **rePW** card and click the circular **Reload** icon in the bottom-right corner of the card.
+5. The extension will update to the latest code immediately while keeping all your stored data.
+
 ## Usage
 
 Click the extension icon in your Chrome toolbar to open the settings panel. From there you can:
