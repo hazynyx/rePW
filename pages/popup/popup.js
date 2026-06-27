@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openAnalysisBtn = document.getElementById('open-analysis-btn');
     if (openAnalysisBtn) {
         openAnalysisBtn.addEventListener('click', () => {
-            chrome.tabs.create({ url: chrome.runtime.getURL('analysis.html') });
+            chrome.tabs.create({ url: chrome.runtime.getURL('pages/analysis/analysis.html') });
         });
     }
 

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "rePW",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fixes known issues of PW player and adds a study analytics page ;)",
   "host_permissions": [
     "<all_urls>",
@@ -15,21 +15,21 @@
     "scripting"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "scripts/background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "pages/popup/popup.html",
     "default_title": "PW Enhancer Settings",
     "default_icon": {
-      "16": "icon16.png",
-      "48": "icon48.png",
-      "128": "icon128.png"
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
     }
   },
   "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
   },
   "content_scripts": [
     {
@@ -37,7 +37,7 @@
         "*://*.pw.live/*",
         "*://streamfiles.eu.org/*"
       ],
-      "js": ["content.js"],
+      "js": ["scripts/content.js"],
       "all_frames": true,
       "run_at": "document_idle"
     }
