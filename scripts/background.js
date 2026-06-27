@@ -33,11 +33,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             studyData: { date: today, seconds: 0 },
             totalStudySeconds: 0,
             detailedStudyTime: { lectures: 0, notes: 0, dpps: 0 },
-            detailedTimeSaved: { customSpeed: 0, jumpcutter: 0 },
+            detailedTimeSaved: { customSpeed: 0 },
             dailyHistory: {},
             hourlyHistory: {}, // { "YYYY-MM-DD": { "0": 10, ... "23": 50 } }
             dailyCategoryHistory: {}, // { "YYYY-MM-DD": { lectures: 10, notes: 0, dpps: 5 } }
-            dailySavedHistory: {} // { "YYYY-MM-DD": { customSpeed: 10, jumpcutter: 5 } }
+            dailySavedHistory: {} // { "YYYY-MM-DD": { customSpeed: 10 } }
         };
 
         chrome.storage.local.get(defaults, (res) => {
@@ -56,9 +56,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             const currentHour = currentDate.getHours().toString(); // "0" to "23"
 
             // Sanitize storage against NaN/shallow merge corruption from older extension versions
-            if (!detailedSaved) detailedSaved = { customSpeed: 0, jumpcutter: 0 };
+            if (!detailedSaved) detailedSaved = { customSpeed: 0 };
             if (typeof detailedSaved.customSpeed !== 'number' || isNaN(detailedSaved.customSpeed)) detailedSaved.customSpeed = 0;
-            if (typeof detailedSaved.jumpcutter !== 'number' || isNaN(detailedSaved.jumpcutter)) detailedSaved.jumpcutter = 0;
 
             if (!detailedTime) detailedTime = { lectures: 0, dpps: 0, notes: 0 };
             if (!dailyCat[isoDate]) dailyCat[isoDate] = { lectures: 0, notes: 0, dpps: 0 };
@@ -79,17 +78,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             }
 
             // ALWAYS add Time Saved (never drops!)
-            if (!dailySaved[isoDate]) dailySaved[isoDate] = { customSpeed: 0, jumpcutter: 0 };
+            if (!dailySaved[isoDate]) dailySaved[isoDate] = { customSpeed: 0 };
             if (typeof dailySaved[isoDate].customSpeed !== 'number' || isNaN(dailySaved[isoDate].customSpeed)) dailySaved[isoDate].customSpeed = 0;
-            if (typeof dailySaved[isoDate].jumpcutter !== 'number' || isNaN(dailySaved[isoDate].jumpcutter)) dailySaved[isoDate].jumpcutter = 0;
 
             if (request.customSpeedSaved) {
                 detailedSaved.customSpeed += request.customSpeedSaved;
                 dailySaved[isoDate].customSpeed += request.customSpeedSaved;
-            }
-            if (request.jumpcutterSaved) {
-                detailedSaved.jumpcutter += request.jumpcutterSaved;
-                dailySaved[isoDate].jumpcutter += request.jumpcutterSaved;
             }
 
             // ONLY add 5 seconds of active time if debounce passes

@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderUI() {
         chrome.storage.local.get({
             detailedStudyTime: { lectures: 0, notes: 0, dpps: 0 },
-            detailedTimeSaved: { customSpeed: 0, jumpcutter: 0 },
+            detailedTimeSaved: { customSpeed: 0 },
             dailyHistory: {},
             hourlyHistory: {},
             dailyCategoryHistory: {},
@@ -137,8 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const totalStudy = totalLectures + totalDpps + totalNotes;
             
             const totalSpeedSaved = res.detailedTimeSaved.customSpeed || 0;
-            const totalJumpSaved = res.detailedTimeSaved.jumpcutter || 0;
-            const totalSaved = totalSpeedSaved + totalJumpSaved;
+            const totalSaved = totalSpeedSaved;
 
             let efficiencyPct = 0;
             if (totalStudy > 0) efficiencyPct = Math.round((totalSaved / totalStudy) * 100);
@@ -214,12 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('insight-hour-val').textContent = insights.bestHourStr;
 
             // --- TIME SAVED ---
-            let effSpeed = 0, effJump = 0, effTotal = 0;
+            let effSpeed = 0, effTotal = 0;
             if (isAllTimeSaved) {
-                effSpeed = totalSpeedSaved; effJump = totalJumpSaved; effTotal = totalSaved;
+                effSpeed = totalSpeedSaved; effTotal = totalSaved;
             } else {
-                const daySaved = res.dailySavedHistory[selectedIso] || { customSpeed: 0, jumpcutter: 0 };
-                effSpeed = daySaved.customSpeed || 0; effJump = daySaved.jumpcutter || 0; effTotal = effSpeed + effJump;
+                const daySaved = res.dailySavedHistory[selectedIso] || { customSpeed: 0 };
+                effSpeed = daySaved.customSpeed || 0; effTotal = effSpeed;
             }
 
             document.getElementById('val-speed').textContent = formatTimeVerbose(effSpeed);

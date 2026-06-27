@@ -18,7 +18,6 @@ A powerful Chrome extension designed to improve your experience on Physics Walla
 - ⏱ **TrueTime UI**: Automatically calculates and displays the exact time remaining on videos based on your current playback speed. Know exactly when your lecture will finish!
 - 📊 **Advanced Analytics Dashboard**: Tracks your daily study time on the platform. Includes a GitHub-style heatmap, active streaks, efficiency breakdowns, and a prominent "Today's Study Time" dashboard. 
 - 🔥 **Strict Streak System**: Only rewards consistency! A minimum of 30 minutes of study time is required to count as an active study day and maintain your streak.
-- ✂️ **Jumpcutter Engine**: Automatically detects and skips silence during lectures. Configurable margins, thresholds, and silence speeds.
 - 📸 **DRM-Bypass Screenshots**: Capture lecture slides instantly via the overlay or timeline. Downloads high-res snapshots without triggering DRM black screens.
 - 🌙 **Smart Dark Mode**: Enables a comprehensive dark mode across the entire site to reduce eye strain during late-night study sessions.
 - ⏩ **Custom Playback Speed**: Overrides the native video player's speed limits, allowing you to watch lectures at up to 4.00x speed.
